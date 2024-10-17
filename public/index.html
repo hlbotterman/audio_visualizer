@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div class="container">
+
+        <button id="toggleControls"><i class="fas fa-angle-left"></i></button>
+
+        <div class="menu" id="controlsMenu">
+            <h2> </h2>
+
+            <div>
+                <label for="youtubeLink">YouTube URL:</label>
+                <input type="text" id="youtubeLink" placeholder="Enter YouTube link here" />
+            </div>
+
+            <div class="button-container">
+                <button id="loadAudio"><i class="fas fa-download"></i></button>
+                <button id="pauseAudio"><i id="pauseIcon" class="fas fa-pause"></i></button>
+                <button id="replayAudio"><i class="fas fa-redo"></i></button>
+            </div>
+
+            <div class="color-container">
+                <label for="colorSelect">Choose Color:</label>
+                <select id="colorSelect">
+                    <option value="blue" selected>Blue</option>
+                    <option value="red">Red</option>
+                    <option value="green">Green</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="gray">Gray</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="particleCount">Number of particles: <span id="particleCountValue">100</span></label>
+                <div class="range-wrapper">
+                    <span class="range-min">0</span>
+                    <input type="range" id="particleCount" min="0" max="400" value="100">
+                    <span class="range-max">400</span>
+                </div>
+            </div>
+
+            <div>
+                <label for="sideCount">Number of sides: <span id="sideCountValue">10</span></label>
+                <div class="range-wrapper">
+                    <span class="range-min">3</span>
+                    <input type="range" id="sideCount" min="3" max="30" value="10">
+                    <span class="range-max">30</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="audioCanvas"></canvas>
+        </div>
+
+    </div>
+    <script src="audioContext.js"></script>
+    <script src="visualizer.js"></script>
+    <script src="uiControls.js"></script>
+    <script src="menuToggle.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

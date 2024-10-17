@@ -1,0 +1,267 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+
+/* Styles for load button */
+#loadAudio.loading i {
+    display: none;
+}
+
+#loadAudio.loading::after {
+    content: '';
+    border: 3px solid #ccc;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Styles for button open/close the column */
+#toggleControls {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: left 0.3s;
+}
+
+#toggleControls i {
+    font-size: 20px;
+}
+
+#controlsMenu {
+    background-color: #100f0f;
+    color: #fff;
+    transition: width 0.3s ease;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+}
+
+/* Menu styles */
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 300px;
+    padding: 20px;
+    background-color: black;
+    height: 100vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.menu h2 {
+    margin-bottom: 50px;
+}
+
+/* Vertical spacing between blocks, but not between the URL and buttons */
+.menu input[type="text"] + .button-container,
+.menu select,
+.menu input[type="range"] {
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remove margin between the URL and buttons */
+.menu input[type="text"] {
+    margin-top: 5px;
+}
+
+/* Transition for sliding menu */
+.menu {
+    width: 250px;
+    transition: width 0.3s, opacity 0.3s;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.menu.closed {
+    width: 0;
+    opacity: 0;
+    padding: 0;
+}
+
+/* Keep buttons aligned horizontally and together */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px; /* Space after buttons */
+}
+
+/* Form elements */
+.menu div {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Adjust padding for the dropdown to move the arrow */
+.menu select {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-right: 30px;
+    appearance: none;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    width: 100%;
+    display: block;
+}
+
+input[type="text"],
+select,
+input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+/* Style for the color picker */
+.color-container {
+    margin-top: 10px;
+    margin-bottom: 30px !important;
+}
+
+/* Button styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    flex: 1;
+    margin: 0 5px;
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.button-container button:first-child {
+    margin-left: 0;
+}
+
+.button-container button:last-child {
+    margin-right: 0;
+}
+
+button i {
+    pointer-events: none;
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .canvas-container {
+        height: 60vh;
+    }
+}
+
+/* Canvas styles */
+.canvas-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    transition: width 0.3s;
+}
+
+.menu.closed + .canvas-container {
+    margin-left: 40px;
+}
+
+canvas {
+    display: block;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 800px;
+}
+
+/* Ensure range labels are properly aligned */
+.range-min, .range-max {
+    font-size: 14px;
+    color: #ccc;
+}
+
+
+/* Range slider min/max labels positioned correctly */
+.range-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.range-wrapper span {
+    font-size: 16px;
+    margin: 0 5px;
+}
