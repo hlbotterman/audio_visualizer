@@ -3,6 +3,10 @@
 This project is a simple web-based audio visualizer that generates dynamic visuals based on the frequency spectrum of an audio file.
 It visualizes audio from a YouTube URL input with customizable settings for particles, sides, and colors.
 
+Here is a screenshot of the application (without sound):
+
+![demo](demo.gif)
+
 
 ## Prerequisites
 - [Node.js](https://nodejs.org/en/) installed on your system.
